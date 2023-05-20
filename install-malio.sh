@@ -1,14 +1,7 @@
 #!/bin/bash
 
 # 切换到 Malio 目录
-cd /www/wwwroot
-
-# 检查并创建 Malio 目录
-if [ ! -d "malio" ]; then
-    mkdir malio
-fi
-
-cd malio
+cd /www/wwwroot/malio
 
 # 克隆 Malio 主题存储库并进行设置
 git clone -b malio https://github.com/laoyu1120/Malio-Theme-for-SSPANEL.git tmp && mv tmp/.git . && rm -rf tmp && git reset --hard
