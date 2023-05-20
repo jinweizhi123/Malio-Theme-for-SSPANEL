@@ -1,7 +1,14 @@
 #!/bin/bash
 
+# 升级系统
+apt-get update -y
+apt-get upgrade -y
+
+# 安装必要的软件
+apt-get install -y git wget
+
 # 切换到 Malio 目录
-cd /www/wwwroot/malio
+cd /www/wwwroot/malio || exit
 
 # 克隆 Malio 主题存储库并进行设置
 git clone -b malio https://github.com/laoyu1120/Malio-Theme-for-SSPANEL.git tmp && mv tmp/.git . && rm -rf tmp && git reset --hard
@@ -19,7 +26,7 @@ cp config/.config.example.php config/.config.php
 cp config/.i18n.example.php config/.i18n.php
 
 # 切换回上级目录
-cd ../
+cd ../ || exit
 
 # 设置权限和所有权
 chmod -R 755 malio/
